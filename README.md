@@ -38,7 +38,7 @@ Get all user info
     Response will get all user.
 
 ### PUT
-Update user info
+Update user info (failed)
 
 + Response 200 (application/json)
 
