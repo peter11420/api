@@ -22,6 +22,19 @@ job_title | user job
 email | user email
 mobile | user phone number
 
+## Format Example
+
+```
+{
+    "communicate_information": {
+        "email": "wayne@gmail.com",
+        "mobile": "09XX-XXX-XXX"
+    },
+    "job_title": "Devops",
+    "name": "Wayne",
+    "id": 1
+}
+```
 
 ## /user
 ### POST
@@ -38,7 +51,7 @@ Get all user info
     Response will get all user.
 
 ### PUT
-Update user info (failed)
+Update user info
 
 + Response 200 (application/json)
 
