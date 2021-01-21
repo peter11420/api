@@ -4,6 +4,7 @@ app = Flask(__name__)
 
 users = [
     {
+    "id": 0,
     "name": "Charles",
     "job_title": "SRE",
     "communicate_information": {
@@ -21,6 +22,7 @@ def get_user():
 def create_user():
     request_data = request.get_json()
     new_user = {
+        "id": request_data['id'],
         "name": request_data['name'],
         "job_title": request_data['job_title'],
         "communicate_information": {
@@ -34,30 +36,25 @@ def create_user():
 @app.route('/user', methods=['PUT'])
 def update_user():
     request_data = request.get_json()
-    find = [request_data for request_data in users if request_data['name'] == users['name'] ]
-    # update_user = {
-    #     "name": request_data['name'],
-    #     "job_title": request_data['job_title'],
-    #     "communicate_information": {
-    #         "email": request_data['communicate_information']['email'],
-    #         "mobile": request_data['communicate_information']['mobile']
-    #     }
-    # }
 
-    if len(find) == 0:
-        return {'message': 'user is not exist'}
-    user = find[0]
-    user['name'] = request_data['name']
-    user['job_title'] = request_data['job_title']
-    user['communicate_information']['email'] = request_data['communicate_information']['email']
-    user['communicate_information']['mobile'] = request_data['communicate_information']['mobile']
-
+    update_user = {
+        "id": request_data['id'],
+        "name": request_data['name'],
+        "job_title": request_data['job_title'],
+        "communicate_information": {
+            "email": request_data['communicate_information']['email'],
+            "mobile": request_data['communicate_information']['mobile']
+        }
+    }
+    
+    users[request_data['id']] = update_user
     return jsonify(users)
 
 @app.route('/user', methods=['DELETE'])
 def delete_user():
     request_data = request.get_json()
     del_user = {
+        "id": request_data['id'],
         "name": request_data['name'],
         "job_title": request_data['job_title'],
         "communicate_information": {

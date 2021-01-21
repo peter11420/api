@@ -16,6 +16,7 @@ docker-compose up -d
 `http://localhost:5000`
 Field | Description
 ------|------------
+id | list id
 name | user name
 job_title | user job
 email | user email
@@ -28,21 +29,24 @@ Add user
 
 + Response 200 (application/json)
 
-
+    Response will get all user.
 ### GET
 Get all user info
 
 + Response 200 (application/json)
 
+    Response will get all user.
 
 ### PUT
 Update user info
 
 + Response 200 (application/json)
 
+    Response will get all user.
 
 ### DELETE
 remove user
 
 + Response 200 (application/json)
 
+    Response will get all user.
